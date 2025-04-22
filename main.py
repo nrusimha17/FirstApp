@@ -9,9 +9,9 @@ os.environ['GOOGLE_API_KEY'] = st.secrets['GOOGLE_API_KEY']
 
 # Create prompt template for generating tweets
 
-tweet_template = "Provide a brief review in {number} lines on the book {topic}"
+tweet_template = "Provide a brief review in {number} lines on the book {Book}"
 
-tweet_prompt = PromptTemplate(template = tweet_template, input_variables = ['number', 'topic'])
+tweet_prompt = PromptTemplate(template = tweet_template, input_variables = ['number', 'Book'])
 
 # Initialize Google's Gemini model
 gemini_model = ChatGoogleGenerativeAI(model = "gemini-1.5-flash-latest")
@@ -25,13 +25,13 @@ import streamlit as st
 
 st.header("BOOK REVIEW")
 
-st.subheader("Book Reviews from Internet")
+st.subheader("Book Reviews By Generative AI")
 
-topic = st.text_input("Topic")
+topic = st.text_input("Book")
 
 number = st.number_input("Number of Lines", min_value = 1, max_value = 10, value = 1, step = 1)
 
 if st.button("Generate"):
-    tweets = tweet_chain.invoke({"number" : number, "topic" : topic})
+    tweets = tweet_chain.invoke({"number" : number, "Book" : Book})
     st.write(tweets.content)
     
