@@ -25,11 +25,11 @@ import streamlit as st
 
 st.header("BOOK REVIEW")
 
-st.subheader("Generate tweets using Generative AI")
+st.subheader("Book Reviews from Internet")
 
 topic = st.text_input("Topic")
 
-number = st.number_input("Number of tweets", min_value = 1, max_value = 10, value = 1, step = 1)
+number = st.number_input("Number of Lines", min_value = 1, max_value = 10, value = 1, step = 1)
 
 if st.button("Generate"):
     tweets = tweet_chain.invoke({"number" : number, "topic" : topic})
