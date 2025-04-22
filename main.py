@@ -29,7 +29,7 @@ st.subheader("Reviews By Generative AI")
 
 book = st.text_input("Name of the Book")
 
-number = st.number_input("Number of Lines", min_value = 5, max_value = 50, value = 1, step = 1)
+number = st.number_input("Number of Lines", min_value = 5, max_value = 50, value = 5, step = 1)
 
 if st.button("Generate"):
     tweets = tweet_chain.invoke({"number" : number, "book" : book})
