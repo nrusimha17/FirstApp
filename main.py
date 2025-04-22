@@ -27,7 +27,7 @@ st.header("BOOK REVIEW")
 
 st.subheader("Reviews By Generative AI")
 
-topic = st.text_input("book")
+book = st.text_input("book")
 
 number = st.number_input("Number of Lines", min_value = 1, max_value = 10, value = 1, step = 1)
 
