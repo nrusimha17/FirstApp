@@ -9,7 +9,7 @@ os.environ['GOOGLE_API_KEY'] = st.secrets['GOOGLE_API_KEY']
 
 # Create prompt template for generating tweets
 
-review_template = "Provide a brief review in {number} lines on the book or movie {book}"
+review_template = "Answer in {number} lines about the question {book}"
 
 review_prompt = PromptTemplate(template = review_template, input_variables = ['number', 'book'])
 
@@ -23,11 +23,11 @@ review_chain = review_prompt | gemini_model
 
 import streamlit as st
 
-st.header("Book/Movie REVIEW")
+st.header("Current Affairs")
 
-st.subheader("Reviews By Generative AI")
+st.subheader("By Generative AI")
 
-book = st.text_input("Name of the Book/Movie")
+book = st.text_input("Ask your Question")
 
 number = st.number_input("Number of Lines", min_value = 5, max_value = 50, value = 5, step = 1)
 
