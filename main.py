@@ -35,7 +35,7 @@ if st.button("Generate") and topic:
     web_results = run_serper_search(topic)
 
     tweet_template = """
-    use the following recent Google search results to analyse Q4 25 financial results of: "{topic}" and write a summary in {number} lines. 
+    use the following recent Google search results to analyse Q4 25 financial results of: "{topic}" from Indian News Papers and write a summary in {number} lines. 
     Outline most important points about revenue, margins, growth prospects by providing the numbers.
     search results:
     {web_results}
