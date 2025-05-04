@@ -14,7 +14,7 @@ st.title("Results Analysis")
 st.subheader("Latest data using GPT + Serper")
 
 topic = st.text_input("Company Name")
-number = st.number_input("Number of Lines", min_value=10, max_value=100, value=10)
+number = st.number_input("Number of Lines", min_value=30, max_value=200, value=30)
 
 def run_serper_search(query):
     headers = {
@@ -35,8 +35,8 @@ if st.button("Generate") and topic:
     web_results = run_serper_search(topic)
 
     tweet_template = """
-    use the following recent Google search results to analyse latest financial results of the company: "{topic}" and write a summary in {number} lines. 
-    Outline most important points about revenue, margins, growth prospects
+    use the following recent Google search results to analyse Q4 25 financial results of: "{topic}" and write a summary in {number} lines. 
+    Outline most important points about revenue, margins, growth prospects by providing the numbers.
     search results:
     {web_results}
     
