@@ -3,10 +3,10 @@ import os
 import requests
 from langchain import PromptTemplate, LLMChain
 from langchain_google_genai import ChatGoogleGenerativeAI
-#from langchain.chat_models import ChatOpenAI
+from langchain.chat_models import ChatOpenAI
 
 #Load secrets from Streamlit secrets
-os.environ["GOOGLE_API_KEY"] = st.secrets["GOOGLE_API_KEY"]
+os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 SERPER_API_KEY = st.secrets["SERPER_API_KEY"]
 
 #setup streamlit UI
@@ -48,11 +48,11 @@ if st.button("Generate") and topic:
         template=tweet_template
     )
 
-    #llm = ChatOpenAI (model_name="gpt-4o",temparature=0.7)
-    gemini_model = ChatGoogleGenerativeAI(model = "gemini-1.5-flash-latest")
-    #chain = LLMChain(prompt=prompt, llm=llm)
+    llm = ChatOpenAI (model_name="gpt-4o",temparature=0.7)
+    #gemini_model = ChatGoogleGenerativeAI(model = "gemini-1.5-flash-latest")
+    chain = LLMChain(prompt=prompt, llm=llm)
     #review_chain = review_prompt | gemini_model
-    chain = LLMChain(prompt=prompt, llm=gemini_model)
+    #chain = LLMChain(prompt=prompt, llm=gemini_model)
     output = chain.invoke(
         {
             "number": number,
