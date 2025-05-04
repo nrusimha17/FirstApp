@@ -58,5 +58,5 @@ if st.button("Generate") and topic:
             "topic": topic,
             "web_results": web_results
         })  
-    st.markdown("### Generated tweets")
+    st.markdown("### Generated analysis")
     st.write(output["text"])
