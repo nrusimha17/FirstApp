@@ -35,11 +35,11 @@ if st.button("Generate") and topic:
     web_results = run_serper_search(topic)
 
     tweet_template = """
-    use the following recent Google search results to analyse latest results of the company: "{topic}" and write a summary in {number} lines. 
+    use the following recent Google search results to analyse latest financial results of the company: "{topic}" and write a summary in {number} lines. 
     Outline most important points about revenue, margins, growth prospects
     search results:
     {web_results}
-    Add analysts' estimates about the stock price direction.
+    
     """
 
     prompt = PromptTemplate(
