@@ -66,7 +66,8 @@ if st.button("Generate") and topic:
     output = chain.invoke({
         "number": number,
         "topic": topic,
-        "web_results": web_results})  
+        "web_results": web_results
+    }) 
     #display result
     st.markdown("### Generated analysis")
     st.write(output["text"])
