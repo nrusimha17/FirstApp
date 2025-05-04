@@ -10,11 +10,11 @@ os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 SERPER_API_KEY = st.secrets["SERPER_API_KEY"]
 
 #setup streamlit UI
-st.title("Real-time Tweet Generator")
-st.subheader("Generate tweets using GPT + Serper")
+st.title("Results Analysis")
+st.subheader("Latest data using GPT + Serper")
 
-topic = st.text_input("Enter a topic")
-number = st.number_input("Enter the number of tweets", min_value=1, max_value=10, value=3)
+topic = st.text_input("Company Name")
+number = st.number_input("Number of Lines", min_value=20, max_value=100, value=10)
 
 def run_serper_search(query):
     headers = {
@@ -35,12 +35,11 @@ if st.button("Generate") and topic:
     web_results = run_serper_search(topic)
 
     tweet_template = """
-    use the following recent Google search results to write {number} engaging tweets about: "{topic}"
-
+    use the following recent Google search results to analyse latest results of the company: "{topic}" and write a summary in {number} lines. 
+    Outline most important points about revenue, margins, growth prospects
     search results:
     {web_results}
-
-    The tweets shoudl be creative, short and twitter-friendly.
+    Add analysts' estimates about the stock price direction.
     """
 
     prompt = PromptTemplate(
