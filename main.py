@@ -55,7 +55,7 @@ if st.button("Generate") and topic:
         template=tweet_template
     )
 
-    llm = ChatOpenAI(model_name="gpt-4o, temparature=0.7)
+    llm = ChatOpenAI(model_name="gpt-4o", temparature=0.7)
     chain = LLMChain(prompt=prompt, llm=llm)
     
     #gemini_model = ChatGoogleGenerativeAI(model = "gemini-1.5-flash-latest")
