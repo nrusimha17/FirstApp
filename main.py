@@ -3,7 +3,7 @@ import os
 import requests
 from langchain import PromptTemplate, LLMChain
 from langchain_google_genai import ChatGoogleGenerativeAI
-#from langchain.chat_models import ChatOpenAI
+from langchain.chat_models import ChatOpenAI
 
 #Load secrets from Streamlit secrets
 os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
