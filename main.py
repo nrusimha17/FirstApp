@@ -39,7 +39,7 @@ if st.button("Generate") and topic:
     Outline most important points about revenue, margins, growth prospects by providing the numbers.
     search results:
     {web_results}
-    
+    Add links to the sources used.
     """
 
     prompt = PromptTemplate(
