@@ -14,7 +14,7 @@ st.title("Results Analysis")
 st.subheader("Latest data using GPT + Serper")
 
 topic = st.text_input("Company Name")
-number = st.number_input("Number of Lines", min_value=20, max_value=100, value=10)
+number = st.number_input("Number of Lines", min_value=10, max_value=100, value=10)
 
 def run_serper_search(query):
     headers = {
