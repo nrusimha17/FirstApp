@@ -51,7 +51,7 @@ if st.button("Generate") and topic:
     #llm = ChatOpenAI (model_name="gpt-4o",temparature=0.7)
     gemini_model = ChatGoogleGenerativeAI(model = "gemini-1.5-flash-latest")
     #chain = LLMChain(prompt=prompt, llm=llm)
-    review_chain = review_prompt | gemini_model
+    #review_chain = review_prompt | gemini_model
     chain = LLMChain(prompt=prompt, llm=gemini_model)
     output = chain.invoke(
         {
